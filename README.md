@@ -10,10 +10,12 @@ wqkv linear transformer
 假设对当前shape为[L, C]的序列X得到shape为[L, C]的Q, K, V。则使用权重矩阵w，得到W = wX，其shape为[L, D]。
 
 则池化结果为:
+
 $$
 K' = softmax(W^T) K \\
 V' = softmax(W^T) V
 $$
+
 从而将shape为[L,C]的 K, V压缩成，shape为[D, C]的$K', V'$。
 
 后续使用Q对[K', V']进行attention，也即
